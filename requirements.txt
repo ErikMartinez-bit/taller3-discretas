@@ -1,1 +1,3 @@
-
+# Sin librerías externas por el momento.
+# Se irán agregando aquí conforme se necesiten (ej: networkx, sympy, numpy),
+# indicando en el README/docs para qué se usa cada una.
