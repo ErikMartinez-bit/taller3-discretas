@@ -55,7 +55,7 @@ de ningún archivo local fuera del repositorio.
 
 | # | Tema | Archivo fuente | Pruebas | Estado |
 |---|------|----------------|---------|--------|
-| 1 | *(pendiente)* | | | ⏳ pendiente |
+| 1 | Criptografía (César) | src/cripto/ejercicio_01.py | tests/test_ejercicio_01.py | hecho |
 | 2 | *(pendiente)* | | | ⏳ pendiente |
 | 3 | *(pendiente)* | | | ⏳ pendiente |
 | 4 | *(pendiente)* | | | ⏳ pendiente |
