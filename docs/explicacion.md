@@ -49,6 +49,11 @@ espacio de llaves es de solo 26 valores.
 
 python src/cripto/ejercicio_01.py
 
+Al correrlo, primero muestra el ejemplo del enunciado y la fuerza bruta de
+un segundo texto. Luego entra en modo interactivo y pregunta:
+(1) Cifrar, (2) Descifrar o (3) Fuerza bruta — pidiendo el texto (y k,
+si aplica) por teclado.
+
 **4. ¿Qué pruebas se hicieron?**
 
 | Entrada | Salida esperada | ¿Caso límite? |
