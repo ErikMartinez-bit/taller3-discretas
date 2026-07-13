@@ -74,3 +74,22 @@ if __name__ == "__main__":
     print(f"\nFuerza bruta sobre '{cifrado2}':")
     for intento_k, resultado in fuerza_bruta(cifrado2).items():
         print(f"  k={intento_k:2d} -> {resultado}")
+
+    # --- Modo interactivo: entradas nuevas dadas por el usuario ---
+    print("\n--- Modo interactivo ---")
+    opcion = input("¿Qué quieres hacer? (1) Cifrar  (2) Descifrar  (3) Fuerza bruta: ")
+
+    if opcion == "1":
+        texto_usuario = input("Texto a cifrar: ")
+        k_usuario = int(input("Desplazamiento k: "))
+        print("Resultado:", cifrar(texto_usuario, k_usuario))
+    elif opcion == "2":
+        texto_usuario = input("Texto a descifrar: ")
+        k_usuario = int(input("Desplazamiento k: "))
+        print("Resultado:", descifrar(texto_usuario, k_usuario))
+    elif opcion == "3":
+        texto_usuario = input("Texto cifrado (k desconocido): ")
+        for intento_k, resultado in fuerza_bruta(texto_usuario).items():
+            print(f"  k={intento_k:2d} -> {resultado}")
+    else:
+        print("Opción no válida, se omite el modo interactivo.")
