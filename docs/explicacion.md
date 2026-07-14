@@ -115,3 +115,52 @@ No verifica que p y q sean primos ni que e sea válido en rango; solo valida
 que gcd(e, phi(n)) = 1. Con primos pequeños no ofrece seguridad real.
 
 ---
+### Ejercicio 3 — MPC básico: promedio sin mostrar los datos
+
+**Categoría:** cripto
+
+**1. ¿Qué problema resuelve el programa?**
+
+Simula un cálculo multipartito seguro (MPC): tres servidores calculan la
+suma y el promedio de una lista de notas sin que ninguno vea una nota
+completa en ningún momento.
+
+**2. ¿Qué idea matemática usa?**
+
+Secret sharing aditivo módulo M. Cada nota x se reparte en 3 partes
+aleatorias s1, s2, s3 tales que x ≡ s1 + s2 + s3 (mod M). Ejemplo pequeño
+con M=97 y x=40: se eligen al azar s1=53 y s2=61, y se calcula
+s3 = (40 - 53 - 61) mod 97 = 23. Comprobación: (53+61+23) mod 97 = 137 mod
+97 = 40. Cada s_i por separado es un número "al azar" en [0, M) que no
+revela nada de x; solo sumando las 3 partes se recupera x. Cada servidor
+suma únicamente las partes que le tocaron de todas las notas (suma
+parcial); al sumar las 3 sumas parciales (mod M) se reconstruye la suma
+total real, sin que ningún servidor haya reconstruido una nota individual.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/cripto/ejercicio_03.py
+
+Corre el ejemplo del enunciado y un segundo ejemplo con más notas. Luego
+pide en modo interactivo una lista de notas separadas por coma.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| [40, 35, 50, 25] | suma=150, promedio=37.5 | No (ejemplo del enunciado) |
+| [10] | suma=10, promedio=10.0 | Sí (una sola nota) |
+| lista de 50 notas | suma y promedio coinciden con cálculo directo | Sí (lista grande) |
+| vistas de cada servidor | ninguna coincide con la lista real de notas | No (verifica privacidad) |
+| [] (lista vacía) | lanza ValueError | Sí (lista vacía) |
+| [40, 60, 10] (60 fuera de rango) | lanza ValueError | Sí (nota inválida) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Es una simulación en un solo programa: los "servidores" son listas en
+memoria, no procesos ni máquinas separadas realmente aisladas. Solo
+funciona bien si la suma real de las notas es menor que M; con M=1000003
+y notas de 0 a 50, esto es seguro para cursos de tamaño normal, pero no
+se valida automáticamente si M fuera más pequeño o el curso enorme.
+
+---
