@@ -57,7 +57,7 @@ de ningún archivo local fuera del repositorio.
 |---|------|----------------|---------|--------|
 | 1 | Criptografía (César) | src/cripto/ejercicio_01.py | tests/test_ejercicio_01.py | hecho |
 | 2 | Criptografía (RSA de juguete) | src/cripto/ejercicio_02.py | tests/test_ejercicio_02.py | hecho |
-| 3 | *(pendiente)* | | | ⏳ pendiente |
+| 3 | Criptografía (MPC - promedio secreto) | src/cripto/ejercicio_03.py | tests/test_ejercicio_03.py | hecho |
 | 4 | *(pendiente)* | | | ⏳ pendiente |
 | 5 | *(pendiente)* | | | ⏳ pendiente |
 | 6 | *(pendiente)* | | | ⏳ pendiente |
