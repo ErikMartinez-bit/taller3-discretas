@@ -325,3 +325,53 @@ práctica da buenos resultados, pero no los óptimos garantizados.
 
 ---
 
+### Ejercicio 7 — Tablas de verdad y circuitos lógicos
+
+**Categoría:** boole
+
+**1. ¿Qué problema resuelve el programa?**
+
+Genera la tabla de verdad de una expresión booleana (variables A,B,C,D con
+AND, OR, NOT, XOR) y permite evaluarla en una entrada concreta.
+
+**2. ¿Qué idea matemática usa?**
+
+Un evaluador propio: tokenizador + parser de descenso recursivo que respeta
+precedencia (NOT > AND > XOR > OR, y los paréntesis mandan), construyendo
+un árbol de sintaxis que se recorre para evaluar. La tabla de verdad es la
+enumeración exhaustiva de las 2^n combinaciones de entrada de esa función
+booleana. Cada conectivo corresponde a una compuerta lógica física (AND,
+OR, NOT/inversor, XOR), así que la expresión completa equivale a una red
+de compuertas, y la tabla de verdad es la especificación que ese circuito
+debe cumplir para cada estado posible de sus entradas.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/boole/ejercicio_07.py
+
+Imprime las tablas de las 3 expresiones obligatorias, muestra que la misma
+expresión con símbolos (∧ ∨ ¬) da el mismo resultado que con palabras, y
+evalúa un par de entradas concretas. Al final hay un modo interactivo para
+ingresar cualquier expresión propia.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Expresión / entrada | Resultado esperado | ¿Caso límite? |
+|---|---|---|
+| (A AND B) OR (NOT C), fila A=V,B=V,C=F | V | No |
+| (A AND B) OR (NOT C), fila A=F,B=F,C=V | F | No |
+| (A XOR B) AND C, fila A=V,B=F,C=V | V | No |
+| (A OR B) AND (NOT A OR C), fila A=V,B=F,C=F | F | No |
+| evaluar_expresion con entrada concreta | coincide con la fila de la tabla | No |
+| misma expresión con símbolos ∧ ∨ ¬ | tabla idéntica a la de palabras | Sí (equivalencia de notación) |
+| "(A AND B" (paréntesis sin cerrar) | lanza ValueError | Sí (expresión mal formada) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Los caracteres no reconocidos (letras fuera de A-D, comas, etc.) se
+ignoran silenciosamente en vez de marcar error, así que una expresión con
+un typo puede parsear "algo" en vez de avisar claramente. No simplifica
+la expresión (no reduce a SOP/POS mínimos), solo la evalúa tal cual.
+
+---
+
