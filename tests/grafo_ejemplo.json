@@ -1,0 +1,44 @@
+{
+  "Portal": {
+    "Calle26": 4,
+    "Terminal": 8
+  },
+  "Calle26": {
+    "Portal": 4,
+    "Museo": 3,
+    "Centro": 7
+  },
+  "Museo": {
+    "Calle26": 3,
+    "Centro": 2,
+    "Universidad": 5
+  },
+  "Centro": {
+    "Calle26": 7,
+    "Museo": 2,
+    "Universidad": 1,
+    "Parque": 6
+  },
+  "Universidad": {
+    "Museo": 5,
+    "Centro": 1,
+    "Parque": 3,
+    "Estadio": 9
+  },
+  "Parque": {
+    "Centro": 6,
+    "Universidad": 3,
+    "Estadio": 4,
+    "Terminal": 10
+  },
+  "Terminal": {
+    "Portal": 8,
+    "Parque": 10,
+    "Estadio": 12
+  },
+  "Estadio": {
+    "Universidad": 9,
+    "Parque": 4,
+    "Terminal": 12
+  }
+}
