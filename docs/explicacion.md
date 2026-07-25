@@ -216,3 +216,60 @@ arista de vuelta). No calcula todas las rutas más cortas simultáneamente
 (solo una consulta origen-destino a la vez).
 
 ---
+
+### Ejercicio 5 — Cierre de una estación: impacto en la red
+
+**Categoría:** grafos
+
+**1. ¿Qué problema resuelve el programa?**
+
+Mide qué tan grave es cerrar un punto de la red de transporte: compara las
+distancias más cortas entre varios pares de lugares antes y después de
+eliminar un vértice (o una arista), y reporta cuáles rutas se alargaron y
+cuáles quedaron sin camino posible.
+
+**2. ¿Qué idea matemática usa?**
+
+Reutiliza Dijkstra sobre dos versiones del mismo grafo: G (original) y
+G' = G sin el vértice/arista cerrado. Para cada par se compara
+d_G(origen,destino) contra d_G'(origen,destino). Esto se relaciona con la
+noción de "punto de corte" (cut vertex) o "puente" (bridge): un
+vértice/arista cuya eliminación aumenta el número de componentes conexas,
+es decir, desconecta pares que antes sí tenían camino.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/grafos/ejercicio_05.py
+
+Se usa el grafo del ejercicio 4, agregando un nodo `Biblioteca` que solo se
+conecta por `Centro`, para poder mostrar un caso real de desconexión (no
+solo rutas más largas). Se cierra el vértice `Centro` y se comparan 5 pares
+de nodos; luego se muestra un segundo ejemplo cerrando solo la arista
+Universidad-Parque. Al final hay un modo interactivo para elegir qué cerrar
+y con qué pares.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Par | Antes | Después | Estado |
+|---|---|---|---|
+| Portal → Estadio | 17 | 19 | ruta más larga |
+| Portal → Museo | 7 | 7 | sin cambio |
+| Calle26 → Parque | 9 | 11 | ruta más larga |
+| Museo → Terminal | 15 | 15 | sin cambio |
+| Portal → Biblioteca | 11 | — | quedó desconectado |
+| Portal → Centro (el nodo cerrado) | 9 | — | estación cerrada (nodo eliminado) |
+
+También se probó que cerrar solo una arista (no un vértice completo) no
+afecta el resto del grafo, y que intentar cerrar un vértice inexistente
+lanza un error claro.
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Solo evalúa el impacto sobre los pares que se le indiquen explícitamente,
+no calcula automáticamente todos los pares posibles de la red. El grafo
+usado es denso (pocos puntos de corte reales); para ver una desconexión
+"natural" entre dos nodos que no sea el propio nodo cerrado, se agregó
+`Biblioteca` como nodo de ejemplo con una sola conexión.
+
+---
+
