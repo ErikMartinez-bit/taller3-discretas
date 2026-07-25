@@ -273,3 +273,55 @@ usado es denso (pocos puntos de corte reales); para ver una desconexión
 
 ---
 
+### Ejercicio 6 — Coloreo de grafos: organizar exámenes sin choques
+
+**Categoría:** grafos
+
+**1. ¿Qué problema resuelve el programa?**
+
+Asigna franjas horarias (colores) a cursos de forma que dos cursos con
+estudiantes en común nunca queden en la misma franja, usando un grafo de
+conflictos donde cada arista indica que dos cursos comparten estudiantes.
+
+**2. ¿Qué idea matemática usa?**
+
+Coloreo propio de vértices: una asignación de colores donde dos vértices
+adyacentes nunca comparten color. El algoritmo voraz recorre los vértices
+en un orden dado (aquí, por grado descendente — heurística de
+Welsh-Powell: primero los cursos con más conflictos) y a cada uno le
+asigna el color más pequeño que ninguno de sus vecinos ya coloreados esté
+usando. Esto siempre da un coloreo válido, pero no necesariamente el
+mínimo número de colores posible (el "número cromático" del grafo),
+porque decide vértice por vértice sin ver el grafo completo.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/grafos/ejercicio_06.py
+
+Usa el grafo `GRAFO_CURSOS` (10 cursos, 12 conflictos) definido en el
+código. Muestra un segundo ejemplo con un grafo bipartito donde se
+comparan dos órdenes de procesamiento distintos. Al final hay un modo
+interactivo para ingresar un grafo de conflictos propio.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| GRAFO_CURSOS (10 cursos, 12 aristas) | coloreo válido con 3 colores | No |
+| Grafo completo K4 | coloreo válido con exactamente 4 colores | Sí (cada vértice vecino de todos) |
+| Grafo bipartito, orden "malo" | coloreo válido pero con 3 colores (subóptimo) | Sí (demuestra el punto 5) |
+| Mismo grafo bipartito, orden por grado | coloreo válido con 2 colores (óptimo) | Sí (mismo grafo, mejor orden) |
+| Grafo sin aristas | coloreo válido con 1 solo color | Sí (sin conflictos) |
+| Colores forzados iguales en un par adyacente | `verificar_coloreo` detecta la falla (False) | Sí (verifica el validador) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+El algoritmo voraz no garantiza el número mínimo de colores (número
+cromático): como se ve en la prueba del grafo bipartito, el mismo grafo
+puede necesitar 2 o 3 colores según el orden de procesamiento. Encontrar
+el número cromático exacto es un problema NP-difícil en general, por lo
+que aquí se usa una heurística (orden por grado descendente) que en la
+práctica da buenos resultados, pero no los óptimos garantizados.
+
+---
+
