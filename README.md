@@ -62,7 +62,7 @@ de ningún archivo local fuera del repositorio.
 | 5 | Grafos (impacto del cierre de una estación) | src/grafos/ejercicio_05.py | tests/test_ejercicio_05.py | hecho |
 | 6 | Grafos (coloreo voraz - horarios de examen) | src/grafos/ejercicio_06.py | tests/test_ejercicio_06.py | hecho |
 | 7 | Boole (tablas de verdad y circuitos) | src/boole/ejercicio_07.py | tests/test_ejercicio_07.py | hecho |
-| 8 | *(pendiente)* | | | ⏳ pendiente |
+| 8 | Boole (simplificación - Quine-McCluskey) | src/boole/ejercicio_08.py | tests/test_ejercicio_08.py | hecho |
 | 9 | *(pendiente)* | | | ⏳ pendiente |
 | 10 | *(pendiente)* | | | ⏳ pendiente |
 
