@@ -375,3 +375,59 @@ la expresión (no reduce a SOP/POS mínimos), solo la evalúa tal cual.
 
 ---
 
+### Ejercicio 8 — Simplificación booleana: hacer un circuito más barato
+
+**Categoría:** boole
+
+**1. ¿Qué problema resuelve el programa?**
+
+Recibe los mintérminos de una función booleana de 3 o 4 variables y produce
+una expresión simplificada en suma de productos, con menos compuertas que
+la suma directa de mintérminos, sin cambiar el comportamiento de la función.
+
+**2. ¿Qué idea matemática usa?**
+
+Un mintérmino es un término producto donde aparecen TODAS las variables
+(complementadas o no), correspondiente a una sola fila de la tabla de
+verdad donde la función vale 1; la suma de todos los mintérminos es, por
+construcción, una expresión con la misma tabla de verdad que la función.
+Quine-McCluskey combina repetidamente términos que difieren en un solo bit
+(ley de combinación X·Y + X·¬Y = X) hasta obtener los "implicantes primos",
+y luego selecciona el menor número de ellos que cubra todos los
+mintérminos (esenciales primero, el resto con una heurística voraz). Dos
+expresiones son equivalentes si y solo si tienen la misma tabla de verdad:
+eso es lo que se compara literalmente, fila por fila, para confirmar que
+la simplificación no alteró el circuito. No se usó ninguna librería
+externa; tanto la simplificación como la verificación están implementadas
+en este archivo.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/boole/ejercicio_08.py
+
+Corre el caso obligatorio (mintérminos {1,3,5,7}, 3 variables) y un segundo
+ejemplo con 4 variables. Luego pide en modo interactivo el número de
+variables y la lista de mintérminos.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| mintérminos {1,3,5,7}, n=3 | expresión "C", misma tabla de verdad | No (caso obligatorio) |
+| mintérminos 0-7, n=4 | expresión "NOT A", misma tabla de verdad | No |
+| mintérminos [], n=3 | expresión "0" | Sí (función siempre falsa) |
+| mintérminos 0-7, n=3 (todos) | expresión "1" | Sí (función siempre verdadera) |
+| {1,3,5,7} vs suma directa de 3 literales | simplificada usa 1 solo literal | No (verifica que sí simplifica) |
+| mintérmino 8 con n=3 (máx. válido 7) | lanza ValueError | Sí (fuera de rango) |
+| num_variables=5 | lanza ValueError | Sí (solo se admite 3 o 4) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+La cobertura de implicantes primos no esenciales usa una heurística voraz
+(igual que el coloreo del ejercicio 6): siempre da una expresión válida y
+equivalente, pero no está garantizado que sea la más corta posible en
+todos los casos. Solo admite 3 o 4 variables (A-D), sin mintérminos "don't
+care".
+
+---
+
