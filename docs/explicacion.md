@@ -164,3 +164,55 @@ y notas de 0 a 50, esto es seguro para cursos de tamaño normal, pero no
 se valida automáticamente si M fuera más pequeño o el curso enorme.
 
 ---
+### Ejercicio 4 — Ruta más corta (Dijkstra)
+
+**Categoría:** grafos
+
+**1. ¿Qué problema resuelve el programa?**
+
+Encuentra la distancia mínima y la ruta más corta entre dos puntos de una
+ciudad, representada como un grafo ponderado (vértices = lugares, aristas
+= conexiones con un tiempo/distancia).
+
+**2. ¿Qué idea matemática usa?**
+
+El algoritmo de Dijkstra, basado en la propiedad de subestructura óptima:
+si el camino más corto de A a C pasa por B, el tramo A->B también es el
+camino más corto entre A y B. Usando una cola de prioridad, siempre se
+"cierra" el vértice no confirmado con menor distancia tentativa. Requiere
+pesos no negativos porque, si un peso fuera negativo, un vértice ya
+cerrado podría mejorarse después, y el algoritmo no lo detectaría (para
+esos casos se necesita Bellman-Ford). Un camino óptimo es aquel cuya suma
+de pesos es la mínima posible entre todos los caminos que unen ese par
+de vértices.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/grafos/ejercicio_04.py
+
+Usa el grafo de prueba `GRAFO_CIUDAD` (8 vértices, 13 aristas) definido en
+el código. También se puede cargar el mismo grafo desde
+`tests/grafo_ejemplo.json` con `cargar_grafo_desde_archivo(...)`. Al
+correrlo, muestra dos ejemplos y luego entra en modo interactivo pidiendo
+nodo origen y destino.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| Portal -> Estadio | distancia=17, ruta Portal-Calle26-Museo-Centro-Universidad-Parque-Estadio | No |
+| Portal -> Terminal | distancia=8 (arista directa, mejor que cualquier rodeo) | No |
+| Centro -> Centro | distancia=0, ruta=[Centro] | Sí (origen=destino) |
+| Portal -> Aeropuerto (no existe) | lanza ValueError | Sí (nodo inexistente) |
+| grafo con nodo aislado Z | distancia=None, ruta=[] | Sí (nodo inalcanzable) |
+| grafo con peso -3 | lanza ValueError al cargar | Sí (peso negativo) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Solo funciona correctamente con pesos no negativos (validado al cargar el
+grafo). No maneja grafos dirigidos con reglas de sentido único de forma
+especial (si se quiere un grafo dirigido, simplemente no se agrega la
+arista de vuelta). No calcula todas las rutas más cortas simultáneamente
+(solo una consulta origen-destino a la vez).
+
+---
