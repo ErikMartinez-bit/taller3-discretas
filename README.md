@@ -60,7 +60,7 @@ de ningún archivo local fuera del repositorio.
 | 3 | Criptografía (MPC - promedio secreto) | src/cripto/ejercicio_03.py | tests/test_ejercicio_03.py | hecho |
 | 4 | Grafos (Dijkstra - ruta más corta) | src/grafos/ejercicio_04.py | tests/test_ejercicio_04.py, tests/grafo_ejemplo.json | hecho |
 | 5 | Grafos (impacto del cierre de una estación) | src/grafos/ejercicio_05.py | tests/test_ejercicio_05.py | hecho |
-| 6 | *(pendiente)* | | | ⏳ pendiente |
+| 6 | Grafos (coloreo voraz - horarios de examen) | src/grafos/ejercicio_06.py | tests/test_ejercicio_06.py | hecho |
 | 7 | *(pendiente)* | | | ⏳ pendiente |
 | 8 | *(pendiente)* | | | ⏳ pendiente |
 | 9 | *(pendiente)* | | | ⏳ pendiente |
