@@ -431,3 +431,59 @@ care".
 
 ---
 
+### Ejercicio 9 — Shannon: medir información en un mensaje
+
+**Categoría:** boole (información / Shannon)
+
+**1. ¿Qué problema resuelve el programa?**
+
+Calcula la frecuencia, probabilidad y entropía de Shannon de un texto, y
+compara la entropía de dos textos explicando cuál tiene mayor incertidumbre
+y por qué. Como extensión opcional, construye un código de Huffman y
+compara su longitud promedio contra la entropía.
+
+**2. ¿Qué idea matemática usa?**
+
+La entropía de Shannon H = -Σ p_i·log2(p_i) mide la incertidumbre promedio
+de una fuente de símbolos, en bits por símbolo. log2(1/p_i) es la
+"sorpresa" de ver el símbolo i; H es el promedio ponderado de esa
+sorpresa. Un texto repetitivo tiene un símbolo con probabilidad cercana a
+1, así que casi no hay sorpresa (H cercano a 0). Un texto con símbolos
+repartidos de forma pareja es más impredecible (H se acerca a su máximo,
+log2 del número de símbolos distintos, en equiprobabilidad exacta). La
+entropía NO depende del largo del texto, solo de qué tan parejo es el
+reparto de frecuencias. Huffman construye un árbol combinando siempre los
+dos símbolos de menor probabilidad; su longitud promedio siempre es ≥ H
+(límite teórico de Shannon para codificación sin pérdida).
+
+**3. ¿Cómo se ejecuta?**
+
+python src/boole/ejercicio_09.py
+
+Analiza un texto muy repetitivo ("AAAAAAAAAABBBAAAAA") y uno variado (una
+frase con letras distintas), compara sus entropías, y aplica Huffman sobre
+el texto variado. Al final hay modo interactivo para ingresar dos textos
+propios.
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| "AAAAAA" (un solo símbolo) | entropía = 0 | Sí (determinista, sin incertidumbre) |
+| "ABABABAB" (2 símbolos equiprobables) | entropía = 1 bit exacto | Sí (caso teórico exacto) |
+| texto repetitivo vs. texto variado | el variado tiene mayor entropía | No (comparación pedida) |
+| "mississippi" | las probabilidades suman 1.0 | No (verifica consistencia) |
+| texto = "" | lanza ValueError | Sí (texto vacío) |
+| Huffman sobre texto variado | longitud promedio ≥ entropía | No (verifica cota teórica) |
+| Huffman con un solo símbolo ("ZZZZZ") | código trivial "0" | Sí (un solo símbolo, sin árbol real) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Trata cada carácter como un símbolo independiente (no modela dependencias
+entre caracteres consecutivos, como en un modelo de Markov); la entropía
+calculada es la de "orden 0". El código de Huffman no se usa para
+comprimir/descomprimir realmente el texto, solo se calcula su longitud
+promedio para compararla con la entropía.
+
+---
+
