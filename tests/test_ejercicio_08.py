@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_C-Boole-Shannon-ComputaciónCuántica"))
+
+from ejercicio_08 import *
+
 def test_caso_obligatorio_minterminos_1_3_5_7():
     expr, patrones, _ = simplificar([1, 3, 5, 7], 3)
     assert expr == "C"
