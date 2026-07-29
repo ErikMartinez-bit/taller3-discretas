@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_C-Boole-Shannon-ComputaciónCuántica"))
+
+from ejercicio_09 import *
+
 def test_texto_completamente_uniforme_tiene_entropia_cero():
     a = analizar_texto("AAAAAA")
     assert abs(a["entropia"] - 0.0) < 1e-9
