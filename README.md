@@ -24,15 +24,24 @@ Python 3.x (probado en Google Colab)
 ## Estructura del repositorio
 taller-discretas/
 ├── README.md
+
 ├── requirements.txt
+
 ├── .gitignore
+
 ├── src/
-│   ├── cripto/       # Criptografía / seguridad
-│   ├── grafos/        # Teoría de grafos / redes
-│   ├── boole/          # Álgebra booleana / circuitos lógicos
-│   └── cuantica/         # Computación cuántica básica
-├── tests/                  # Pruebas por ejercicio
-└── docs/                     # Explicación matemática (Markdown → PDF)
+
+│   ├── cripto/       Criptografía / seguridad
+
+│   ├── grafos/        Teoría de grafos / redes
+
+│   ├── boole/          Álgebra booleana / circuitos lógicos
+
+│   └── cuantica/         Computación cuántica básica
+
+├── tests/                  Pruebas por ejercicio
+
+└── docs/                     Explicación matemática (Markdown → PDF)
 
 ## Instrucciones para ejecutar
 
