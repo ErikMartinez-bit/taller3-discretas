@@ -3,7 +3,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_A-Criptografía"))
 
-from ejercicio_01 import
+from ejercicio_01 import *
 
 def test_cifrado_basico():
     assert cifrar("HOLA UNAL", 3) == "KROD XQDO"
