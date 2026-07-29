@@ -1,7 +1,7 @@
 
 # Documento de explicación — Taller de Matemáticas Discretas
 
-## Plantilla por ejercicio (copiar y llenar para cada uno de los 10)
+## Plantilla por ejercicio
 
 ### Ejercicio N — [Nombre del ejercicio]
 
@@ -487,3 +487,56 @@ promedio para compararla con la entropía.
 
 ---
 
+### Ejercicio 10 — Primer simulador cuántico: bits, qubits y mediciones
+
+**Categoría:** cuantica
+
+**1. ¿Qué problema resuelve el programa?**
+
+Simula un solo qubit representado como un vector [alpha, beta], aplica las
+compuertas X, Z y H, calcula las probabilidades teóricas de medir 0 o 1
+(regla de Born) y simula 1000 mediciones para comparar las frecuencias
+observadas contra esas probabilidades.
+
+**2. ¿Qué idea matemática usa?**
+
+Álgebra lineal: el estado es un vector de norma 1, y aplicar una compuerta
+es multiplicar por una matriz unitaria 2x2 (|psi'> = U|psi>). X intercambia
+|0> y |1>; Z invierte la fase de |1> sin cambiar probabilidades; H crea
+superposición (de un estado básico produce 50%/50%). La regla de Born dice
+que P(0) = |alpha|^2 y P(1) = |beta|^2. Simular una medición es un solo
+sorteo aleatorio clásico usando esas probabilidades como distribución; por
+la ley de los grandes números, al repetir 1000 veces la frecuencia
+observada se acerca a la probabilidad teórica.
+
+**3. ¿Cómo se ejecuta?**
+
+python src/cuantica/ejercicio_10.py
+
+Corre los 3 casos obligatorios (X|0>, H|0>, HH|0>), un ejemplo adicional
+con Z y una combinación de compuertas, y termina con un modo interactivo
+donde se elige el estado inicial (0 o 1) y una secuencia de compuertas a
+aplicar (ej. "X Z H").
+
+**4. ¿Qué pruebas se hicieron?**
+
+| Entrada | Salida esperada | ¿Caso límite? |
+|---|---|---|
+| X\|0> | igual a \|1> | No (caso obligatorio) |
+| H\|0> | P(0)=P(1)=0.5 exacto | No (caso obligatorio) |
+| H(H\|0>) | igual a \|0> (con tolerancia numérica) | No (caso obligatorio) |
+| Z\|1> | vector [0,-1]; P(1) sigue siendo 1.0 | Sí (fase cambia, probabilidad no) |
+| 1000 mediciones sobre H\|0> | frecuencia de 0 cerca de 0.5 (±0.1) | Sí (variabilidad estadística) |
+| probabilidades de \|0> puro | P(0)=1.0, P(1)=0.0 exacto | Sí (estado sin superposición) |
+| simular_mediciones con 0 repeticiones | lanza ValueError | Sí (número inválido) |
+
+**5. ¿Qué limitaciones tiene la solución?**
+
+Es una simulación clásica: todo el vector de estado es visible en todo
+momento, algo que no ocurre en un computador cuántico real (ahí solo se
+observan los resultados 0/1 de cada medición, nunca alpha y beta
+directamente, y cada medición colapsa físicamente el estado). Tampoco hay
+ruido físico ni decoherencia, que sí afectan a un computador cuántico real.
+Solo trabaja con 1 qubit (no hay entrelazamiento ni múltiples qubits).
+
+---
