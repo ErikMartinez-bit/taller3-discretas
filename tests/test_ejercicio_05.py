@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_B-Grafos"))
+
+from ejercicio_05 import
+
 def test_impacto_ruta_mas_larga():
     gd = eliminar_vertice(GRAFO_CIUDAD, "Centro")
     f = comparar_impacto(GRAFO_CIUDAD, gd, [("Portal", "Estadio")])[0]
