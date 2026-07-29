@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_C-Boole-Shannon-ComputaciónCuántica"))
+
+from ejercicio_10 import *
+
 def test_X_sobre_ket0_da_ket1():
     estado = aplicar_compuerta(KET_0, X)
     assert np.allclose(estado, KET_1)
