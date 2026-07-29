@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_A-Criptografía"))
+
+from ejercicio_03 import
+
 def test_ejemplo_del_enunciado():
     r = simular_mpc_promedio([40, 35, 50, 25])
     assert r["suma"] == 150
