@@ -30,13 +30,13 @@ taller-discretas/
 
 ├── .gitignore
 
-├── src/                     # Código fuente de los 10 ejercicios, por bloque
+├── src/                                              # Código fuente de los 10 ejercicios, por bloque
 
-│   ├── bloque_a/             # Bloque A - Criptografía (ejercicios 1-3)
+│   ├── Bloque_A-Criptografía/                        # Bloque A - Criptografía (ejercicios 1-3)
 
-│   ├── bloque_b/              # Bloque B - Grafos (ejercicios 4-6)
+│   ├── Bloque_B-Grafos/                              # Bloque B - Grafos (ejercicios 4-6)
 
-│   └── bloque_c/               # Bloque C - Boole, Shannon y Computación Cuántica (ejercicios 7-10)
+│   └── Bloque_C-Boole-Shannon-ComputaciónCuántica/   # Bloque C - Boole, Shannon y Computación Cuántica (ejercicios 7-10)
 
 ├── tests/                  Pruebas por ejercicio
 
