@@ -47,7 +47,8 @@ taller-discretas/
 Cada ejercicio se puede correr de forma independiente:
 
 ```bash
-python src/<bloque>/ejercicio_XX.py    # bloque = bloque_a, bloque_b o bloque_c
+python src/<bloque>/ejercicio_XX.py
+# bloque = Bloque_A-Criptografía, Bloque_B-Grafos o Bloque_C-Boole-Shannon-ComputaciónCuántica
 ```
 
 Las pruebas de cada ejercicio están en `tests/` y se corren igual:
@@ -63,16 +64,16 @@ de ningún archivo local fuera del repositorio.
 
 | # | Tema | Archivo fuente | Pruebas | Estado |
 |---|------|----------------|---------|--------|
-| 1 | Criptografía (César) | src/bloque_a/ejercicio_01.py | tests/test_ejercicio_01.py | hecho |
-| 2 | Criptografía (RSA de juguete) | src/bloque_a/ejercicio_02.py | tests/test_ejercicio_02.py | hecho |
-| 3 | Criptografía (MPC - promedio secreto) | src/bloque_a/ejercicio_03.py | tests/test_ejercicio_03.py | hecho |
-| 4 | Grafos (Dijkstra - ruta más corta) | src/bloque_b/ejercicio_04.py | tests/test_ejercicio_04.py, tests/grafo_ejemplo.json | hecho |
-| 5 | Grafos (impacto del cierre de una estación) | src/bloque_b/ejercicio_05.py | tests/test_ejercicio_05.py | hecho |
-| 6 | Grafos (coloreo voraz - horarios de examen) | src/bloque_b/ejercicio_06.py | tests/test_ejercicio_06.py | hecho |
-| 7 | Boole (tablas de verdad y circuitos) | src/bloque_c/ejercicio_07.py | tests/test_ejercicio_07.py | hecho |
-| 8 | Boole (simplificación - Quine-McCluskey) | src/bloque_c/ejercicio_08.py | tests/test_ejercicio_08.py | hecho |
-| 9 | Shannon (entropía + Huffman opcional) | src/bloque_c/ejercicio_09.py | tests/test_ejercicio_09.py | hecho |
-| 10 | Cuántica (simulador de 1 qubit) | src/bloque_c/ejercicio_10.py | tests/test_ejercicio_10.py | hecho |
+| 1 | Criptografía (César) | src/Bloque_A-Criptografía/ejercicio_01.py | tests/test_ejercicio_01.py | hecho |
+| 2 | Criptografía (RSA de juguete) | src/Bloque_A-Criptografía/ejercicio_02.py | tests/test_ejercicio_02.py | hecho |
+| 3 | Criptografía (MPC - promedio secreto) | src/Bloque_A-Criptografía/ejercicio_03.py | tests/test_ejercicio_03.py | hecho |
+| 4 | Grafos (Dijkstra - ruta más corta) | src/Bloque_B-Grafos/ejercicio_04.py | tests/test_ejercicio_04.py, tests/grafo_ejemplo_ej4.json | hecho |
+| 5 | Grafos (impacto del cierre de una estación) | src/Bloque_B-Grafos/ejercicio_05.py | tests/test_ejercicio_05.py | hecho |
+| 6 | Grafos (coloreo voraz - horarios de examen) | src/Bloque_B-Grafos/ejercicio_06.py | tests/test_ejercicio_06.py | hecho |
+| 7 | Boole (tablas de verdad y circuitos) | src/Bloque_C-Boole-Shannon-ComputaciónCuántica/ejercicio_07.py | tests/test_ejercicio_07.py | hecho |
+| 8 | Boole (simplificación - Quine-McCluskey) | src/Bloque_C-Boole-Shannon-ComputaciónCuántica/ejercicio_08.py | tests/test_ejercicio_08.py | hecho |
+| 9 | Shannon (entropía + Huffman opcional) | src/Bloque_C-Boole-Shannon-ComputaciónCuántica/ejercicio_09.py | tests/test_ejercicio_09.py | hecho |
+| 10 | Cuántica (simulador de 1 qubit) | src/Bloque_C-Boole-Shannon-ComputaciónCuántica/ejercicio_10.py | tests/test_ejercicio_10.py | hecho |
 
 ## Librerías externas
 
