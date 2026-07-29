@@ -73,10 +73,8 @@ de ningún archivo local fuera del repositorio.
 | 7 | Boole (tablas de verdad y circuitos) | src/boole/ejercicio_07.py | tests/test_ejercicio_07.py | hecho |
 | 8 | Boole (simplificación - Quine-McCluskey) | src/boole/ejercicio_08.py | tests/test_ejercicio_08.py | hecho |
 | 9 | Shannon (entropía + Huffman opcional) | src/boole/ejercicio_09.py | tests/test_ejercicio_09.py | hecho |
-| 10 | *(pendiente)* | | | ⏳ pendiente |
+| 10 | Cuántica (simulador de 1 qubit) | src/cuantica/ejercicio_10.py | tests/test_ejercicio_10.py | hecho |
 
 ## Librerías externas
 
-Por el momento no se usan librerías externas (ver `requirements.txt`). Si se
-llega a usar alguna, se explicará aquí y en `docs/` qué parte resuelve la
-librería y qué parte fue implementada.
+Solo se usa NUMPY, exactamente para el ejercicio 10 CUANTICA
