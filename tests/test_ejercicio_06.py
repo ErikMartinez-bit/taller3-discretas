@@ -3,7 +3,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_B-Grafos"))
 
-from ejercicio_06 import
+from ejercicio_06 import *
 
 def test_coloreo_valido_grafo_cursos():
     colores = colorear_grafo_voraz(GRAFO_CURSOS)
