@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_B-Grafos"))
+
+from ejercicio_04 import
+
 def test_ruta_principal_portal_estadio():
     d, r = dijkstra(GRAFO_CIUDAD, "Portal", "Estadio")
     assert d == 17
