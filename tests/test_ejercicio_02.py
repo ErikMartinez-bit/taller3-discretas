@@ -3,7 +3,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src", "Bloque_A-Criptografía"))
 
-from ejercicio_02 import
+from ejercicio_02 import *
 
 def test_caso_obligatorio_del_enunciado():
     n, phi_n, d = generar_llaves(61, 53, 17)
