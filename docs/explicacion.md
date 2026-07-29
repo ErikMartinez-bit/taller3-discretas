@@ -47,7 +47,7 @@ espacio de llaves es de solo 26 valores.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/cripto/ejercicio_01.py
+python src/bloque_a/ejercicio_01.py
 
 Al correrlo, primero muestra el ejemplo del enunciado y la fuerza bruta de
 un segundo texto. Luego entra en modo interactivo y pregunta:
@@ -92,7 +92,7 @@ Los primos p, q son el secreto: sin ellos no se puede calcular phi(n) ni d.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/cripto/ejercicio_02.py
+python src/bloque_a/ejercicio_02.py
 
 Muestra el caso obligatorio del enunciado y un segundo ejemplo con otros
 números. Luego entra en modo interactivo y pide p, q, e y M por teclado.
@@ -139,7 +139,7 @@ total real, sin que ningún servidor haya reconstruido una nota individual.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/cripto/ejercicio_03.py
+python src/bloque_a/ejercicio_03.py
 
 Corre el ejemplo del enunciado y un segundo ejemplo con más notas. Luego
 pide en modo interactivo una lista de notas separadas por coma.
@@ -188,7 +188,7 @@ de vértices.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/grafos/ejercicio_04.py
+python src/bloque_b/ejercicio_04.py
 
 Usa el grafo de prueba `GRAFO_CIUDAD` (8 vértices, 13 aristas) definido en
 el código. También se puede cargar el mismo grafo desde
@@ -239,7 +239,7 @@ es decir, desconecta pares que antes sí tenían camino.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/grafos/ejercicio_05.py
+python src/bloque_b/ejercicio_05.py
 
 Se usa el grafo del ejercicio 4, agregando un nodo `Biblioteca` que solo se
 conecta por `Centro`, para poder mostrar un caso real de desconexión (no
@@ -296,7 +296,7 @@ porque decide vértice por vértice sin ver el grafo completo.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/grafos/ejercicio_06.py
+python src/bloque_b/ejercicio_06.py
 
 Usa el grafo `GRAFO_CURSOS` (10 cursos, 12 conflictos) definido en el
 código. Muestra un segundo ejemplo con un grafo bipartito donde se
@@ -347,7 +347,7 @@ debe cumplir para cada estado posible de sus entradas.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/boole/ejercicio_07.py
+python src/bloque_c/ejercicio_07.py
 
 Imprime las tablas de las 3 expresiones obligatorias, muestra que la misma
 expresión con símbolos (∧ ∨ ¬) da el mismo resultado que con palabras, y
@@ -403,7 +403,7 @@ en este archivo.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/boole/ejercicio_08.py
+python src/bloque_c/ejercicio_08.py
 
 Corre el caso obligatorio (mintérminos {1,3,5,7}, 3 variables) y un segundo
 ejemplo con 4 variables. Luego pide en modo interactivo el número de
@@ -458,7 +458,7 @@ dos símbolos de menor probabilidad; su longitud promedio siempre es ≥ H
 
 **3. ¿Cómo se ejecuta?**
 
-python src/boole/ejercicio_09.py
+python src/bloque_c/ejercicio_09.py
 
 Analiza un texto muy repetitivo ("AAAAAAAAAABBBAAAAA") y uno variado (una
 frase con letras distintas), compara sus entropías, y aplica Huffman sobre
@@ -511,7 +511,7 @@ observada se acerca a la probabilidad teórica.
 
 **3. ¿Cómo se ejecuta?**
 
-python src/cuantica/ejercicio_10.py
+python src/bloque_c/ejercicio_10.py
 
 Corre los 3 casos obligatorios (X|0>, H|0>, HH|0>), un ejemplo adicional
 con Z y una combinación de compuertas, y termina con un modo interactivo
